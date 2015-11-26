@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" id="viewport">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background: rgb(255,185,209);
+        }
+
+        .sections {
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            width: 600%;
+        }
+
+        .section {
+            height: 100%;
+            float: left;
+            position: relative;
+        }
+
+            .section .fullimg {
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: relative;
+            }
+
+            .section .animate {
+                position: absolute;
+                z-index: 5;
+                width: 35px;
+                margin: auto;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+
+            .section .activeAnimate {
+                animation: updown 0.5s ease-in-out 0s infinite alternate;
+                -webkit-animation: updown 0.5s ease-in-out 0s infinite alternate;
+            }
+
+        @keyframes updown {
+            0% {
+                transform: translateY(-100px);
+            }
+
+            100% {
+                transform: translateY(100px);
+            }
+        }
+
+        @-webkit-keyframes updown {
+            0% {
+                -webkit-transform: translateY(-100px);
+            }
+
+            100% {
+                -webkit-transform: translateY(100px);
+            }
+        }
+
+        .mscBtn {
+            width: 50px;
+            height: 50px;
+            background: rgb(255,185,209) url('images/musicBtn.gif') no-repeat;
+            display: none;
+            position: fixed;
+            right: 0px;
+            top: 0px;
+        }
+
+        .pause {
+            background-position: 0px -50px;
+        }
+
+        canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" data-pagemove>
+        <canvas id="myCanvas" style="position: absolute; width: 100%; height: 100%; z-index: 100"></canvas>
+        <div class="sections " style="-webkit-transition-delay: 0ms; -webkit-transition-timing-function: ease-in">
+            <div class="section">
+                <img class="fullimg" src="images/1.jpg" />
+                <img />
+            </div>
+            <div class="section">
+                <img class="fullimg" src="images/2.jpg" />
+            </div>
+            <div class="section">
+                <img class="fullimg" src="images/3.jpg" />
+            </div>
+            <div class="section">
+                <img class="fullimg" src="images/4.jpg" />
+            </div> v
+            <div class="section">
+                <img class="fullimg" src="images/5.jpg" />
+            </div>
+            <div class="section" style="position: relative">
+                <img class="floatimg" src="images/滑动效果_03.gif" style="position: absolute; top: 30px; left: 30px; width: 150px; z-index: 3;" />
+                <img class="floatimg" src="images/滑动效果_07.gif" style="position: absolute; top: 90px; left: 80px; width: 150px; z-index: 4" />
+                <img class="animate" src="images/小手.png" />
+                <img class="fullimg" id="img6" src="images/6.jpg" />
+                <img class="fullimg" id="img7" src="images/7.jpg" style="display: none" />
+                <img class="fullimg" id="img8" src="images/8.jpg" style="display: none" />
+                <img class="fullimg" src="images/wait.png" style="display: none" />
+                <img class="fullimg" src="images/8-9.jpg" style="display: none" />
+                <img class="fullimg" id="img9" src="images/9.jpg" style="display: none" />
+                <img class="fullimg" id="warning" src="images/warning.png" style="display: none; position: absolute; width: 100%; height: 100%; top: 0; left: 0" />
+            </div>
+            <div class="section">
+                <img class="fullimg" src="images/10.jpg" />
+            </div>
+            <div class="section">
+                <img class="fullimg" src="images/11.jpg" />
+            </div>
+        </div>
+    </div>
+    <div>
+        <audio src="music/background.mp3" autoplay="autoplay" loop="loop" />
+        <audio id="effectMusic" src="music/last.mp3"></audio>
+    </div>
+</body>
+</html>
+<script src="jquery-1.11.2.min.js"></script>
+<script src="PageMoveMusic.js"></script>
+<script src="effect.js"></script>
+<script>
+    //控制暂停播放，没用
+    //$(function () {
+    //    var music = document.getElementById("bgMusic");
+
+    //    $('.animate').on('webkitAnimationEnd animationend', function () {
+    //        var me = $(this);
+    //        me.css('display', 'none');
+    //    });
+    //    $("#audioBtn").click(function () {
+    //        if (music.paused) {
+    //            music.play();
+    //            $("#audioBtn").removeClass("pause").addClass("play");
+    //        } else {
+    //            music.pause();
+    //            $("#audioBtn").removeClass("play").addClass("pause");
+    //        }
+    //    });
+    //});
+</script>
